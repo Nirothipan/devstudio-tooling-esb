@@ -2939,6 +2939,14 @@ public class EsbSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case EsbPackage.DROP_MEDIATOR_OUTPUT_CONNECTOR: {
+				DropMediatorOutputConnector dropMediatorOutputConnector = (DropMediatorOutputConnector)theEObject;
+				T result = caseDropMediatorOutputConnector(dropMediatorOutputConnector);
+				if (result == null) result = caseOutputConnector(dropMediatorOutputConnector);
+				if (result == null) result = caseEsbConnector(dropMediatorOutputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -6015,6 +6023,21 @@ public class EsbSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseCommentMediator(CommentMediator object) {
+		return null;
+	}
+
+				/**
+	 * Returns the result of interpreting the object as an instance of '<em>Drop Mediator Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Drop Mediator Output Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDropMediatorOutputConnector(DropMediatorOutputConnector object) {
 		return null;
 	}
 

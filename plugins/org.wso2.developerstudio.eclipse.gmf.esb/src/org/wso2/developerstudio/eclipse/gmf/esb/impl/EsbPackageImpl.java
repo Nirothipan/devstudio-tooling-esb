@@ -147,6 +147,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.DefaultEndPointInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.DefaultEndPointOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.DropMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.DropMediatorInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.DropMediatorOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.EJBMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.EJBMediatorInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.EJBMediatorOutputConnector;
@@ -1977,6 +1978,13 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	private EClass commentMediatorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dropMediatorOutputConnectorEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -5621,6 +5629,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 */
 	public EReference getDropMediator_InputConnector() {
 		return (EReference)dropMediatorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDropMediator_OutputConnector() {
+		return (EReference)dropMediatorEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -12621,6 +12638,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getDropMediatorOutputConnector() {
+		return dropMediatorOutputConnectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getArtifactType() {
 		return artifactTypeEEnum;
 	}
@@ -19400,6 +19426,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 
 		dropMediatorEClass = createEClass(DROP_MEDIATOR);
 		createEReference(dropMediatorEClass, DROP_MEDIATOR__INPUT_CONNECTOR);
+		createEReference(dropMediatorEClass, DROP_MEDIATOR__OUTPUT_CONNECTOR);
 
 		dropMediatorInputConnectorEClass = createEClass(DROP_MEDIATOR_INPUT_CONNECTOR);
 
@@ -21090,6 +21117,8 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		commentMediatorEClass = createEClass(COMMENT_MEDIATOR);
 		createEAttribute(commentMediatorEClass, COMMENT_MEDIATOR__COMMENT_TEXT);
 
+		dropMediatorOutputConnectorEClass = createEClass(DROP_MEDIATOR_OUTPUT_CONNECTOR);
+
 		// Create enums
 		artifactTypeEEnum = createEEnum(ARTIFACT_TYPE);
 		callMediatorEndpointTypeEEnum = createEEnum(CALL_MEDIATOR_ENDPOINT_TYPE);
@@ -21588,6 +21617,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		inboundEndpointOnErrorSequenceOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
 		inboundEndpointOnErrorSequenceInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
 		commentMediatorEClass.getESuperTypes().add(this.getMediator());
+		dropMediatorOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(esbDiagramEClass, EsbDiagram.class, "EsbDiagram", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -21821,6 +21851,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 
 		initEClass(dropMediatorEClass, DropMediator.class, "DropMediator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDropMediator_InputConnector(), this.getDropMediatorInputConnector(), null, "inputConnector", null, 0, 1, DropMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDropMediator_OutputConnector(), this.getDropMediatorOutputConnector(), null, "outputConnector", null, 0, 1, DropMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dropMediatorInputConnectorEClass, DropMediatorInputConnector.class, "DropMediatorInputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -23520,6 +23551,8 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 
 		initEClass(commentMediatorEClass, CommentMediator.class, "CommentMediator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCommentMediator_CommentText(), ecorePackage.getEString(), "commentText", "class_name", 0, 1, CommentMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(dropMediatorOutputConnectorEClass, DropMediatorOutputConnector.class, "DropMediatorOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(artifactTypeEEnum, ArtifactType.class, "ArtifactType");

@@ -364,6 +364,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="DropMediator" eSuperTypes="#//Mediator">
     <eStructuralFeatures xsi:type="ecore:EReference" name="inputConnector" eType="#//DropMediatorInputConnector"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outputConnector" eType="#//DropMediatorOutputConnector"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DropMediatorInputConnector" eSuperTypes="#//InputConnector"/>
   <eClassifiers xsi:type="ecore:EClass" name="FilterMediator" eSuperTypes="#//Mediator">
@@ -3399,4 +3400,5 @@
     <eLiterals name="Context" value="1" literal="context"/>
     <eLiterals name="URL" value="2" literal="url"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DropMediatorOutputConnector" eSuperTypes="#//OutputConnector"/>
 </ecore:EPackage>

@@ -415,6 +415,7 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 			case EsbPackage.INBOUND_ENDPOINT_ON_ERROR_SEQUENCE_OUTPUT_CONNECTOR: return createInboundEndpointOnErrorSequenceOutputConnector();
 			case EsbPackage.INBOUND_ENDPOINT_ON_ERROR_SEQUENCE_INPUT_CONNECTOR: return createInboundEndpointOnErrorSequenceInputConnector();
 			case EsbPackage.COMMENT_MEDIATOR: return createCommentMediator();
+			case EsbPackage.DROP_MEDIATOR_OUTPUT_CONNECTOR: return createDropMediatorOutputConnector();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -3040,6 +3041,16 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	public CommentMediator createCommentMediator() {
 		CommentMediatorImpl commentMediator = new CommentMediatorImpl();
 		return commentMediator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DropMediatorOutputConnector createDropMediatorOutputConnector() {
+		DropMediatorOutputConnectorImpl dropMediatorOutputConnector = new DropMediatorOutputConnectorImpl();
+		return dropMediatorOutputConnector;
 	}
 
 	/**

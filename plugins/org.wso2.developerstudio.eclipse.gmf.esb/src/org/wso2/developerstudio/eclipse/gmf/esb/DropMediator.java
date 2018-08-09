@@ -17,6 +17,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb;
  * </p>
  * <ul>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.DropMediator#getInputConnector <em>Input Connector</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.DropMediator#getOutputConnector <em>Output Connector</em>}</li>
  * </ul>
  *
  * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getDropMediator()
@@ -49,5 +50,31 @@ public interface DropMediator extends Mediator {
 	 * @generated
 	 */
 	void setInputConnector(DropMediatorInputConnector value);
+
+	/**
+	 * Returns the value of the '<em><b>Output Connector</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Output Connector</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Output Connector</em>' reference.
+	 * @see #setOutputConnector(DropMediatorOutputConnector)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getDropMediator_OutputConnector()
+	 * @model
+	 * @generated
+	 */
+	DropMediatorOutputConnector getOutputConnector();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.DropMediator#getOutputConnector <em>Output Connector</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Output Connector</em>' reference.
+	 * @see #getOutputConnector()
+	 * @generated
+	 */
+	void setOutputConnector(DropMediatorOutputConnector value);
 
 } // DropMediator

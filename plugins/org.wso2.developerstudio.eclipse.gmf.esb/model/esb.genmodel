@@ -991,6 +991,7 @@
     <genClasses ecoreClass="esb.ecore#//HTTPEndPointOutputConnector"/>
     <genClasses ecoreClass="esb.ecore#//DropMediator">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//DropMediator/inputConnector"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esb.ecore#//DropMediator/outputConnector"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//DropMediatorInputConnector"/>
     <genClasses ecoreClass="esb.ecore#//FilterMediator">
@@ -2588,5 +2589,6 @@
     <genClasses ecoreClass="esb.ecore#//CommentMediator">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//CommentMediator/commentText"/>
     </genClasses>
+    <genClasses ecoreClass="esb.ecore#//DropMediatorOutputConnector"/>
   </genPackages>
 </genmodel:GenModel>

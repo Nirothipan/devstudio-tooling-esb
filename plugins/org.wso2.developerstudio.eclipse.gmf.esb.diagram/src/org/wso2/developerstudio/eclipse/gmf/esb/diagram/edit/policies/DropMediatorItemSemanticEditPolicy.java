@@ -38,6 +38,9 @@ public class DropMediatorItemSemanticEditPolicy extends EsbBaseItemSemanticEditP
 		if (EsbElementTypes.DropMediatorInputConnector_3008 == req.getElementType()) {
 			return getGEFWrapper(new DropMediatorInputConnectorCreateCommand(req));
 		}
+//		if (EsbElementTypes.DropMediatorOutputConnector_3738 == req.getElementType()) {
+//			return getGEFWrapper(new DropMediatorOutputConnectorCreateCommand(req));
+//		}
 		return super.getCreateCommand(req);
 	}
 
