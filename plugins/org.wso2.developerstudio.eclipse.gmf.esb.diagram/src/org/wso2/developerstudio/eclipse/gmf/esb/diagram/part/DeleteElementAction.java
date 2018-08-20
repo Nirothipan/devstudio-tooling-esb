@@ -77,7 +77,7 @@ public class DeleteElementAction extends DefaultDeleteElementAction {
 							//
 						}
 					} else {
-						ESBDebuggerUtil.updateModifiedDebugPoints();
+						ESBDebuggerUtil.updateModifiedDebugPoints(false);
 					}
 					ESBDebuggerUtil.setDeleteOperationPerformed(true);
 				}

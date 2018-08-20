@@ -42,7 +42,7 @@ public class CustomDiagramGraphicalViewerKeyHandler extends DiagramGraphicalView
 					//
 				}
 			} else {
-				ESBDebuggerUtil.updateModifiedDebugPoints();
+				ESBDebuggerUtil.updateModifiedDebugPoints(false);
 			}
 			ESBDebuggerUtil.setDeleteOperationPerformed(true);
 			deleteAction.run(null);		

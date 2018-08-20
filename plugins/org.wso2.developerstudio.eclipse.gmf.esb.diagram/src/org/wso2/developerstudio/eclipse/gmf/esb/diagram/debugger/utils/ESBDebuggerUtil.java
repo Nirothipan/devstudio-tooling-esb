@@ -147,13 +147,14 @@ public class ESBDebuggerUtil {
 	/**
 	 * This method modify debug points when a new mediator addition operation is
 	 * performed
-	 * 
+	 *
+	 * @param isSaveFlow       - boolean to identify whether this is invoked when saving the artifact or not.
 	 * @param abstractMediator
 	 * @throws CoreException
 	 * @throws ESBDebuggerException
 	 */
-	public static void modifyDebugPointsointsAfterMediatorAddition(AbstractMediator abstractMediator)
-			throws CoreException, ESBDebuggerException {
+	public static void modifyDebugPointsointsAfterMediatorAddition(boolean isSaveFlow,
+			AbstractMediator abstractMediator) throws CoreException, ESBDebuggerException {
 
 		IWorkbenchPage[] pages = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getPages();
 		for (IWorkbenchPage iWorkbenchPage : pages) {
@@ -162,21 +163,25 @@ public class ESBDebuggerUtil {
 				IEditorPart activeEditor = iEditorReference.getEditor(false);
 				if (activeEditor instanceof EsbMultiPageEditor) {
 					IResource resource = getIResourceFromIEditorPart(activeEditor);
-					EsbServer esbServer = getESBServerFromIEditorPart(activeEditor);
-					if (esbServer != null) {
-						IESBDebugPointBuilder breakpointBuilder = ESBDebugPointBuilderFactory
-								.getBreakpointBuilder(esbServer.getType());
-						try {
-							breakpointBuilder.updateExistingDebugPoints(resource, abstractMediator, esbServer,
-									ESBDebuggerConstants.MEDIATOR_INSERT_ACTION);
-							setRecentlyAddedMediator(null);
-							return;
-						} catch (MediatorNotFoundException e) {
-							log.info("Inserted Mediator not found in a valid location for breakpoint validation", e);
-						} catch (ESBDebuggerException e) {
-							log.info(e.getMessage(), e);
+					if (!(isSaveFlow && resource != getCurrentOpenResource())) {
+						EsbServer esbServer = getESBServerFromIEditorPart(activeEditor);
+						if (esbServer != null) {
+							IESBDebugPointBuilder breakpointBuilder = ESBDebugPointBuilderFactory
+									.getBreakpointBuilder(esbServer.getType());
+							try {
+								breakpointBuilder.updateExistingDebugPoints(resource, abstractMediator, esbServer,
+										ESBDebuggerConstants.MEDIATOR_INSERT_ACTION);
+								setRecentlyAddedMediator(null);
+								return;
+							} catch (MediatorNotFoundException e) {
+								log.info("Inserted Mediator not found in a valid location for breakpoint validation", e);
+							} catch (ESBDebuggerException e) {
+								log.info(e.getMessage(), e);
+							}
+						} else {
+							System.out.println();
 						}
-					} else{
+					} else {
 						System.out.println();
 					}
 				} else{
@@ -188,12 +193,24 @@ public class ESBDebuggerUtil {
 	}
 
 	/**
+	 * Get the currently open resource.
+	 *
+	 * @return - The current resource
+	 */
+	private static IResource getCurrentOpenResource() {
+		IEditorPart activeEditor = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage()
+				.getActiveEditor();
+		IResource resource = getIResourceFromIEditorPart(activeEditor);
+		return resource;
+	}
+
+	/**
 	 * This method updates, if there is any debug points needed to be modified
 	 */
-	public static void updateModifiedDebugPoints() {
+	public static void updateModifiedDebugPoints(boolean isSaveFlow) {
 		try {
 			if (recentlyAddedMediator != null) {
-				modifyDebugPointsointsAfterMediatorAddition(recentlyAddedMediator);
+				modifyDebugPointsointsAfterMediatorAddition(isSaveFlow, recentlyAddedMediator);
 			}
 		} catch (CoreException | ESBDebuggerException e) {
 			log.error("Error while updating debug points : " + e.getMessage(), e);
